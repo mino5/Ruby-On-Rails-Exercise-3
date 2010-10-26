@@ -1,0 +1,11 @@
+%h2 Categories
+
+- @categories.each do |category|
+  %p
+    %b= category.name
+    = link_to "Edit", edit_admin_category_path(category)
+    = link_to "Destroy", admin_category_path(category), :confirm => "Are you sure?", :method => :delete
+  %p
+
+%p= link_to "Add new category", new_admin_category_path
+%p= link_to "Back", admin_root_path

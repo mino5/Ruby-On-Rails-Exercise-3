@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @student.name %>
+</p>
+
+<p>
+  <b>Pesel:</b>
+  <%= @student.pesel %>
+</p>
+
+<p>
+  <b>Category/semester:</b>
+  <%= @student.category.name %>
+</p>
+
+<p>
+  <b>Password(md5)</b>
+  <%= @student.password %>
+</p>
+
+<b> Courses: </b>
+<table>
+ <% @student.courses.each do |course| %>
+ <tr>
+ <td><%= course.name %> </td>
+ <td><%= link_to 'Show more', student_course_path(course.student_id, course.id) %></td> 
+ </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back', students_path %>
+<%= link_to 'New course', new_student_course_path(@student) %>

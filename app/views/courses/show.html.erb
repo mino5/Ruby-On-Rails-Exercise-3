@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @course.name %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @course.points %>
+</p>
+
+<p>
+  <b>Mandatory:</b>
+  <%= @course.mandatory %>
+</p>
+
+<%= link_to 'Back', student_path(params[:student_id]) %>
+<%= link_to 'Edit', edit_student_course_path(@student_course) %>
+<%= link_to 'Destroy', student_course_path(@student_course), :confirm => "Are you sure?", :method => :delete %> 

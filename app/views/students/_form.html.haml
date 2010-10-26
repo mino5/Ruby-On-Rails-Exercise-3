@@ -1,0 +1,4 @@
+%p= f.select :category_id, (@categories.collect {|c| [c.name, c.id]}), :required => true
+%p= f.label :name "Name"
+%p= f.label :pesel "Pesel"
+

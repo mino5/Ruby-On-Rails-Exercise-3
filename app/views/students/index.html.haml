@@ -1,0 +1,14 @@
+%h2 Students
+
+- @students.each do |student|
+  %p
+    %b= student.name
+  %p
+    Category:
+    - if student.category 
+      = student.category.name
+  %p= student.name
+  = link_to "More", student
+  %hr
+
+

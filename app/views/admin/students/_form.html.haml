@@ -1,0 +1,9 @@
+
+
+%p= f.select :category_id, (@categories.collect {|c| [c.name, c.id]}), :required => true
+%p= f.label :name, "Name"
+%p= f.text_field :name
+%p= f.label :pesel, "Pesel"
+%p= f.text_field :pesel
+%p= f.label :password, "Password"
+%p= f.password_field :password, {:value => ''}
