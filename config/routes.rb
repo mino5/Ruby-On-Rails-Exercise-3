@@ -51,6 +51,14 @@ App3::Application.routes.draw do
      get :latest
     end
   end
+ 
+ resource :user_session
+ root :controller => "user_sessions", :action => "new"
+ resources :users
+ resource :account, :controller => "users"
+ 
+ match 'login' => "user_sessions#new", :as => :login
+ match 'logout' => "user_sessions#destroy", :as => :logout 
 
  root :to => "students#index"
  resources :categories

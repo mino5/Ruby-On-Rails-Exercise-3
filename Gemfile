@@ -9,6 +9,8 @@ gem 'rails', '3.0.0'
 gem 'heroku'
 gem 'haml'
 gem 'mysql'
+#gem 'devise', :git => "git://github.com/plataformatec/devise.git"
+gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 # Use unicorn as the web server
 # gem 'unicorn'
 

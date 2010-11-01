@@ -9,6 +9,15 @@
 <body>
 
 <%= yield %>
-
+<div id="user_nav">
+  <% if current_user %>
+  <%= "Signed in." %>
+  <%= link_to "Sign out", logout_path %>
+  <%= link_to "Go to home page", students_path %>
+  <% else %>
+  <%= link_to "Register", new_user_path %>
+  <%= link_to "Log in", login_path %>
+  <% end %>
+</div>
 </body>
 </html>
