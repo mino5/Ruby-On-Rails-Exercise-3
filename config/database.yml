@@ -29,4 +29,10 @@ development:
    username: root
    password: toor
 
-
+test:
+   adapter: mysql
+   database: baza
+   pool: 5
+   timeout: 5000
+   username: root
+   password: toor

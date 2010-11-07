@@ -7,7 +7,7 @@ class Student < ActiveRecord::Base
  validates :pesel, :presence => true, :length => {:is => 11, :message => 'Pesel must have 11 digits'}
  validates :password, :presence => true
 
- private 
+ protected 
  	def cipher_password
 		write_attribute("password", MD5.new(password).to_s)
         end

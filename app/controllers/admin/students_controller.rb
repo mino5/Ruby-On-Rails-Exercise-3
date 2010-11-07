@@ -1,6 +1,7 @@
 class Admin::StudentsController < ApplicationController
   def index
-    @students = Student.all
+    @search = Student.search(params[:search])
+    @students = @search.paginate(:page => params[:page], :per_page => 4)
   end
   
   def show

@@ -1,11 +1,27 @@
 %h2 Students
+- form_for :search, @search, :html => {:method => :get} do |f|
+  %p
+    = f.label :name_contains
+  %p
+    = f.text_field :name_contains
+  %p
+    = f.label :category_name_contains
+  %p
+    = f.text_field :category_name_contains
+  %p
+    = f.label :pesel_contains
+  %p
+    = f.text_field :pesel_contains
+  %p
+    = f.submit
+  %hr
 
 - @students.each do |student|
   %p
     %b= student.name
   %p
     Category:
-    - if student.category 
+    - if student.category
       = student.category.name
   %p= student.name
 
@@ -13,6 +29,7 @@
   = link_to "Destroy", admin_student_path(student), :confirm => "Are you sure?", :method => :delete
   %hr
 
+= will_paginate @students
 %p= link_to 'New student', new_admin_student_path
 %p= link_to 'Back', admin_root_path
 

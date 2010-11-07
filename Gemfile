@@ -11,6 +11,15 @@ gem 'haml'
 gem 'mysql'
 #gem 'devise', :git => "git://github.com/plataformatec/devise.git"
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
+gem 'will_paginate', :git => 'https://github.com/mislav/will_paginate.git'
+gem "meta_search", :git => "git://github.com/ernie/meta_search.git"
+
+group :test, :development do
+  gem "rspec-rails", "~>2.0.1"
+end
+
+#gem "factory_girl"
+gem "autotest"
 # Use unicorn as the web server
 # gem 'unicorn'
 
