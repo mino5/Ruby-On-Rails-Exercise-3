@@ -1,0 +1,7 @@
+%h2 Courses
+
+- @courses.each do |course|
+  %p
+    %b= course.name
+  = link_to "More", admin_course_path(course)
+  %hr

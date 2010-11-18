@@ -17,4 +17,9 @@
 
 <%= link_to 'Back', student_path(params[:student_id]) %>
 <%= link_to 'Edit', edit_student_course_path(@student_course) %>
-<%= link_to 'Destroy', student_course_path(@student_course), :confirm => "Are you sure?", :method => :delete %> 
+<%= link_to 'Destroy', student_course_path(@student_course), :confirm => "Are you sure?", :method => :delete %>
+<% if not Opinion.exists?(:course_id => @course) %>
+<%= link_to 'Give opinion', new_course_opinion_path(@course) %> 
+<% else %>
+<p> Already sent opinion. </p>
+<% end %>

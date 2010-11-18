@@ -44,6 +44,8 @@ App3::Application.routes.draw do
   end
 
   resources :courses do
+    
+    resources :opinions
     member do
      get :up
     end
@@ -51,6 +53,15 @@ App3::Application.routes.draw do
      get :latest
     end
   end
+
+ resources :opinions do
+   member do 
+    get :up
+   end
+   collection do
+    get :latest
+   end
+ end
  
  resource :user_session
  root :controller => "user_sessions", :action => "new"
@@ -69,6 +80,7 @@ App3::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
        resources :students
        resources :categories
+       resources :courses
        root :to => "admin#index"
      end
 

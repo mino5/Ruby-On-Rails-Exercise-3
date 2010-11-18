@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @course.name %>
+</p>
+
+<p>
+  <b>Points:</b>
+  <%= @course.points %>
+</p>
+
+<p>
+  <b>Mandatory:</b>
+  <%= @course.mandatory %>
+</p>
+
+<b> Opinions: </b>
+<table>
+ <% @course.opinions.each do |opinion| %>
+ <tr>
+ <td><%= opinion.text %> <hr></td> 
+ </tr>
+<% end %>
+</table>

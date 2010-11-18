@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101101134528) do
+ActiveRecord::Schema.define(:version => 20101115140308) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20101101134528) do
     t.string   "name"
     t.integer  "points"
     t.boolean  "mandatory"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "opinions", :force => true do |t|
+    t.integer  "course_id"
+    t.integer  "student_id"
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,16 +57,17 @@ ActiveRecord::Schema.define(:version => 20101101134528) do
   create_table "users", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "login",                            :null => false
-    t.string   "crypted_password",                 :null => false
-    t.string   "password_salt",                    :null => false
-    t.string   "persistence_token",                :null => false
-    t.integer  "login_count",       :default => 0, :null => false
+    t.string   "login",                                :null => false
+    t.string   "crypted_password",                     :null => false
+    t.string   "password_salt",                        :null => false
+    t.string   "persistence_token",                    :null => false
+    t.integer  "login_count",       :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
     t.string   "last_login_ip"
     t.string   "current_login_ip"
+    t.boolean  "is_admin",          :default => false
   end
 
   add_index "users", ["last_request_at"], :name => "index_users_on_last_request_at"

@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   def index
   require_user
+ # require_admin
   @students = Student.all
   end
 

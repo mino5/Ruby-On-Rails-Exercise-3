@@ -13,9 +13,14 @@ gem 'mysql'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'will_paginate', :git => 'https://github.com/mislav/will_paginate.git'
 gem "meta_search", :git => "git://github.com/ernie/meta_search.git"
-
+gem "capybara", ">= 0.3.9"
 group :test, :development do
   gem "rspec-rails", "~>2.0.1"
+  gem "capybara", ">= 0.3.9"
+  gem "culerity"
+  gem "launchy"
+  gem "autotest"
+  gem "webrat"
 end
 
 #gem "factory_girl"

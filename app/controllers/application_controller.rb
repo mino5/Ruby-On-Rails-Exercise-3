@@ -2,8 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
    helper :all
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :require_admin
   filter_parameter_logging :password, :password_confirmation
+
   
   private
     def current_user_session
@@ -34,6 +35,23 @@ class ApplicationController < ActionController::Base
       end
     end
     
+   def require_admin
+    unless current_user
+        store_location
+        flash[:notice] = "You must be logged in to access this page"
+        redirect_to new_user_session_url
+        return false
+      end
+   if current_user
+   	if current_user.is_admin == false
+	    flash[:notice] = "Admin rights reqired"
+	      redirect_to account_url
+     	 return false
+        end   
+   end
+
+   end
+
     def store_location
       session[:return_to] = request.request_uri
     end
